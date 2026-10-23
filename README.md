@@ -1,5 +1,10 @@
 # EYSD_S11 · Registro de personas
 
+## Integrantes
+
+* Elmer Jose Manuel Villegas Suarez - 202410032
+* Farid Jack Aquino Castro - 202410569
+
 Laboratorio de la sesión 11 del curso DS3031 Ética y seguridad de datos (UTEC). Es una aplicación donde cada persona crea su ficha, inicia sesión y administra sus propios datos personales: verlos, editarlos, eliminarlos y restringir hasta 2 de ellos.
 
 - **Backend:** Flask (`app.py`)
