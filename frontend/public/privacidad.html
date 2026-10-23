@@ -1,0 +1,811 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Política de privacidad</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Public+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Mismos tokens que frontend/src/styles.css */
+      :root {
+        --fondo: #d9dee3;
+        --hoja: #f6f8f9;
+        --tinta: #17212b;
+        --tinta-suave: #5a6875;
+        --linea: #b9c2ca;
+        --sello: #3d3aa8;
+        --sello-claro: #e6e5f6;
+        --tachado: #17212b;
+        --ok: #2d6a4f;
+        --ok-claro: #e0efe7;
+
+        --sans: "Public Sans", system-ui, sans-serif;
+        --maquina: "Courier Prime", "Courier New", monospace;
+
+        color-scheme: light;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --fondo: #141a20;
+          --hoja: #1d252d;
+          --tinta: #e3e8ec;
+          --tinta-suave: #9aa7b3;
+          --linea: #34404b;
+          --sello: #a9a6f5;
+          --sello-claro: #2a2950;
+          --tachado: #000;
+          --ok: #83c9a6;
+          --ok-claro: #1a3328;
+          color-scheme: dark;
+        }
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background: var(--fondo);
+        color: var(--tinta);
+        font: 400 1rem/1.6 var(--sans);
+        -webkit-font-smoothing: antialiased;
+      }
+
+      h1,
+      h2,
+      h3,
+      p,
+      ul,
+      ol,
+      dl,
+      dd {
+        margin: 0;
+      }
+
+      a {
+        color: var(--sello);
+        text-underline-offset: 3px;
+      }
+
+      :focus-visible {
+        outline: 2px solid var(--sello);
+        outline-offset: 2px;
+      }
+
+      /* ---------- Estructura ---------- */
+
+      .pagina {
+        max-width: 1160px;
+        margin: 0 auto;
+        padding: 40px 24px 96px;
+      }
+
+      .cabecera {
+        padding-bottom: 28px;
+        border-bottom: 2px solid var(--tinta);
+      }
+
+      .cabecera h1 {
+        font-size: 2.441rem;
+        line-height: 1.1;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+
+      .bajada {
+        margin-top: 10px;
+        max-width: 62ch;
+        color: var(--tinta-suave);
+      }
+
+      .vigencia {
+        margin-top: 14px;
+        font-family: var(--maquina);
+        color: var(--sello);
+      }
+
+      .cuerpo {
+        display: grid;
+        grid-template-columns: minmax(220px, 280px) 1fr;
+        gap: 40px;
+        margin-top: 32px;
+        align-items: start;
+      }
+
+      /* ---------- Índice ---------- */
+
+      .indice {
+        position: sticky;
+        top: 24px;
+      }
+
+      .indice h2 {
+        font-size: 1rem;
+        font-weight: 600;
+        padding-bottom: 10px;
+        border-bottom: 1px solid var(--linea);
+      }
+
+      .indice ol {
+        list-style: none;
+        padding: 0;
+        counter-reset: sec;
+      }
+
+      .indice a {
+        display: grid;
+        grid-template-columns: 2rem 1fr;
+        padding: 9px 8px;
+        border-bottom: 1px solid var(--linea);
+        color: var(--tinta);
+        text-decoration: none;
+        font-size: 0.9375rem;
+      }
+
+      .indice a::before {
+        counter-increment: sec;
+        content: counter(sec);
+        font-family: var(--maquina);
+        color: var(--tinta-suave);
+      }
+
+      .indice a:hover {
+        background: color-mix(in srgb, var(--hoja) 55%, transparent);
+        box-shadow: inset 3px 0 0 var(--sello);
+      }
+
+      /* ---------- Hoja ---------- */
+
+      .hoja {
+        background: var(--hoja);
+        border: 1px solid var(--linea);
+        border-radius: 3px;
+        padding: 40px 48px 48px;
+      }
+
+      .seccion + .seccion {
+        margin-top: 48px;
+        padding-top: 40px;
+        border-top: 1px solid var(--linea);
+      }
+
+      .seccion {
+        scroll-margin-top: 24px;
+      }
+
+      .seccion h2 {
+        font-size: 1.563rem;
+        line-height: 1.2;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+        margin-bottom: 14px;
+      }
+
+      .seccion h2 .num {
+        font-family: var(--maquina);
+        font-weight: 400;
+        color: var(--sello);
+        margin-right: 10px;
+      }
+
+      .seccion p,
+      .seccion li {
+        max-width: 68ch;
+      }
+
+      .seccion p + p,
+      .seccion p + ul,
+      .seccion ul + p {
+        margin-top: 12px;
+      }
+
+      .seccion ul {
+        padding-left: 1.2rem;
+      }
+
+      .seccion li + li {
+        margin-top: 6px;
+      }
+
+      .nota {
+        font-size: 0.875rem;
+        color: var(--tinta-suave);
+      }
+
+      .ley {
+        font-family: var(--maquina);
+        font-size: 0.875rem;
+        color: var(--tinta-suave);
+        white-space: nowrap;
+      }
+
+      .pendiente {
+        padding: 0 4px;
+        background: var(--sello-claro);
+        color: var(--sello);
+        font-family: var(--maquina);
+        border-radius: 2px;
+      }
+
+      /* ---------- Ficha de datos (bloque de la sección 2) ---------- */
+
+      .datos {
+        margin-top: 20px;
+        border-top: 1px solid var(--linea);
+      }
+
+      .dato {
+        display: grid;
+        grid-template-columns: 8rem minmax(0, 15rem) 1fr;
+        gap: 20px;
+        align-items: baseline;
+        padding: 14px 0;
+        border-bottom: 1px dotted var(--linea);
+      }
+
+      .dato dt {
+        font-size: 0.8125rem;
+        color: var(--tinta-suave);
+      }
+
+      .dato-valor {
+        font-family: var(--maquina);
+        font-size: 1.0625rem;
+        overflow-wrap: anywhere;
+      }
+
+      .dato-uso {
+        font-size: 0.9375rem;
+      }
+
+      .opcional {
+        font-size: 0.8125rem;
+        color: var(--tinta-suave);
+      }
+
+      .tachado {
+        display: inline-block;
+        width: min(var(--largo, 12ch), 100%);
+        height: 1.05em;
+        vertical-align: -0.15em;
+        background: var(--tachado);
+        border-radius: 1px;
+        transform-origin: left center;
+        animation: tachar 600ms 400ms cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+      }
+
+      @keyframes tachar {
+        from {
+          transform: scaleX(0);
+        }
+      }
+
+      /* ---------- Principios ---------- */
+
+      .principios {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+        gap: 0 32px;
+        margin-top: 20px;
+        padding: 0;
+        list-style: none;
+      }
+
+      .principios li {
+        padding: 12px 0;
+        border-top: 1px solid var(--linea);
+        max-width: none;
+      }
+
+      .principios li + li {
+        margin-top: 0;
+      }
+
+      .principios strong {
+        display: block;
+      }
+
+      .principios span {
+        font-size: 0.875rem;
+        color: var(--tinta-suave);
+      }
+
+      /* ---------- Derechos ARCO ---------- */
+
+      .arco {
+        margin-top: 24px;
+        border-top: 2px solid var(--tinta);
+      }
+
+      .derecho {
+        display: grid;
+        grid-template-columns: 5rem 1fr;
+        gap: 4px 28px;
+        padding: 24px 0;
+        border-bottom: 1px solid var(--linea);
+      }
+
+      .letra {
+        grid-row: span 4;
+        font-size: 4.25rem;
+        line-height: 0.9;
+        font-weight: 700;
+        color: var(--sello);
+        letter-spacing: -0.04em;
+      }
+
+      .derecho h3 {
+        font-size: 1.25rem;
+        line-height: 1.3;
+      }
+
+      .derecho p {
+        max-width: 64ch;
+      }
+
+      .derecho p + p {
+        margin-top: 0;
+      }
+
+      .detalles {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px 24px;
+        margin-top: 8px;
+        font-size: 0.875rem;
+      }
+
+      .detalles dt {
+        color: var(--tinta-suave);
+      }
+
+      .detalles div {
+        display: flex;
+        gap: 6px;
+      }
+
+      .detalles dd {
+        font-weight: 600;
+      }
+
+      /* ---------- Pasos para ejercer derechos ---------- */
+
+      .pasos {
+        margin-top: 20px;
+        padding: 0;
+        list-style: none;
+        counter-reset: paso;
+      }
+
+      .pasos li {
+        position: relative;
+        padding: 0 0 20px 3rem;
+        max-width: 66ch;
+      }
+
+      .pasos li + li {
+        margin-top: 0;
+      }
+
+      .pasos li::before {
+        counter-increment: paso;
+        content: counter(paso);
+        position: absolute;
+        left: 0;
+        top: -1px;
+        width: 2rem;
+        height: 2rem;
+        display: grid;
+        place-items: center;
+        border: 1.5px solid var(--sello);
+        border-radius: 3px;
+        font-family: var(--maquina);
+        font-weight: 700;
+        color: var(--sello);
+      }
+
+      .pasos li:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        left: calc(1rem - 1px);
+        top: 2.2rem;
+        bottom: 4px;
+        border-left: 1.5px dotted var(--linea);
+      }
+
+      .contacto {
+        margin-top: 8px;
+        padding: 16px 18px;
+        background: var(--ok-claro);
+        color: var(--ok);
+        border-radius: 3px;
+        max-width: 66ch;
+      }
+
+      .contacto strong {
+        color: var(--tinta);
+      }
+
+      .pie {
+        margin-top: 28px;
+        font-size: 0.8125rem;
+        color: var(--tinta-suave);
+      }
+
+      /* ---------- Responsivo y movimiento ---------- */
+
+      @media (max-width: 860px) {
+        .pagina {
+          padding: 24px 16px 72px;
+        }
+
+        .cabecera h1 {
+          font-size: 1.953rem;
+        }
+
+        .cuerpo {
+          grid-template-columns: 1fr;
+          gap: 24px;
+        }
+
+        .indice {
+          position: static;
+        }
+
+        .hoja {
+          padding: 28px 20px 32px;
+        }
+
+        .dato {
+          grid-template-columns: 1fr;
+          gap: 2px;
+        }
+
+        .derecho {
+          grid-template-columns: 3.25rem 1fr;
+          gap: 4px 16px;
+        }
+
+        .letra {
+          font-size: 3rem;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        .tachado {
+          animation: none;
+        }
+      }
+
+      @media print {
+        body {
+          background: #fff;
+        }
+
+        .indice {
+          display: none;
+        }
+
+        .cuerpo {
+          display: block;
+        }
+
+        .hoja {
+          border: 0;
+          padding: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="pagina">
+      <header class="cabecera">
+        <h1>Política de privacidad</h1>
+        <p class="bajada">
+          Qué datos personales pedimos en el Registro de personas, para qué los usamos, cómo los protegemos y
+          cómo puedes acceder a ellos, corregirlos, borrarlos u oponerte a su uso. Aplicamos la Ley N.º 29733,
+          Ley de Protección de Datos Personales del Perú, y su Reglamento.
+        </p>
+        <p class="vigencia">Vigente desde el 23 de octubre de 2026</p>
+      </header>
+
+      <div class="cuerpo">
+        <nav class="indice" aria-label="Contenido">
+          <h2>Contenido</h2>
+          <ol>
+            <li><a href="#responsable">Quién es responsable</a></li>
+            <li><a href="#datos">Qué datos pedimos y para qué</a></li>
+            <li><a href="#consentimiento">Tu consentimiento</a></li>
+            <li><a href="#seguridad">Cómo protegemos tus datos</a></li>
+            <li><a href="#conservacion">Cuánto tiempo los guardamos</a></li>
+            <li><a href="#terceros">Con quién los compartimos</a></li>
+            <li><a href="#arco">Tus derechos ARCO</a></li>
+            <li><a href="#ejercer">Cómo ejercer tus derechos</a></li>
+            <li><a href="#principios">Principios que seguimos</a></li>
+            <li><a href="#cambios">Cambios a esta política</a></li>
+          </ol>
+        </nav>
+
+        <main class="hoja">
+          <section class="seccion" id="responsable">
+            <h2><span class="num">1</span>Quién es responsable</h2>
+            <p>
+              El titular del banco de datos personales es el equipo del proyecto
+              <strong>Registro de personas</strong>, desarrollado en el curso Ética y Seguridad de Datos.
+              Decidimos qué datos se recogen, para qué y cómo se protegen.
+            </p>
+            <p>
+              Para cualquier consulta sobre tus datos escríbenos a
+              <span class="pendiente">[correo de contacto]</span>. El banco de datos se identifica como
+              «Registro de personas» ante la Autoridad Nacional de Protección de Datos Personales.
+              <span class="ley">Ley 29733, art. 2 y 34</span>
+            </p>
+          </section>
+
+          <section class="seccion" id="datos">
+            <h2><span class="num">2</span>Qué datos pedimos y para qué</h2>
+            <p>
+              Solo pedimos lo necesario para registrarte e identificarte. No pedimos datos sensibles como
+              salud, origen racial, ideas políticas o religiosas, ni datos biométricos.
+            </p>
+
+            <dl class="datos">
+              <div class="dato">
+                <dt>Nombres y apellidos</dt>
+                <dd class="dato-valor">Ana Lucía Pérez Rojas</dd>
+                <dd class="dato-uso">Identificarte dentro del registro.</dd>
+              </div>
+              <div class="dato">
+                <dt>Correo</dt>
+                <dd class="dato-valor">ana.perez@correo.pe</dd>
+                <dd class="dato-uso">Iniciar sesión y responder a tus solicitudes.</dd>
+              </div>
+              <div class="dato">
+                <dt>Teléfono <span class="opcional">(opcional)</span></dt>
+                <dd class="dato-valor">987 654 321</dd>
+                <dd class="dato-uso">Contactarte si lo prefieres al correo. Puedes no darlo.</dd>
+              </div>
+              <div class="dato">
+                <dt>Contraseña</dt>
+                <dd class="dato-valor"><span class="tachado" style="--largo: 14ch" role="img" aria-label="Contraseña no legible"></span></dd>
+                <dd class="dato-uso">
+                  Comprobar que eres tú al iniciar sesión. Nunca la guardamos tal como la escribes: guardamos un
+                  resumen cifrado que nadie, ni nosotros, puede convertir de vuelta en tu contraseña.
+                </dd>
+              </div>
+              <div class="dato">
+                <dt>Fecha de registro</dt>
+                <dd class="dato-valor">23/10/2026 09:05</dd>
+                <dd class="dato-uso">Saber desde cuándo existe tu ficha.</dd>
+              </div>
+              <div class="dato">
+                <dt>Aceptación de esta política</dt>
+                <dd class="dato-valor">23/10/2026 09:05</dd>
+                <dd class="dato-uso">Dejar constancia de que diste tu consentimiento y cuándo.</dd>
+              </div>
+              <div class="dato">
+                <dt>Datos restringidos</dt>
+                <dd class="dato-valor">correo, teléfono</dd>
+                <dd class="dato-uso">Recordar qué datos tuyos no deben mostrarse al consultar tu ficha.</dd>
+              </div>
+            </dl>
+
+            <p style="margin-top: 20px">
+              No usamos tus datos para publicidad, perfiles comerciales ni decisiones automatizadas, y no los
+              usaremos para una finalidad distinta sin pedirte antes un nuevo consentimiento.
+              <span class="ley">Ley 29733, art. 6 y 7</span>
+            </p>
+          </section>
+
+          <section class="seccion" id="consentimiento">
+            <h2><span class="num">3</span>Tu consentimiento</h2>
+            <p>
+              Tratamos tus datos porque nos das tu consentimiento al registrarte. Ese consentimiento debe ser
+              libre, previo, expreso, informado e inequívoco: por eso te mostramos esta política antes de que
+              envíes tus datos.
+              <span class="ley">Ley 29733, art. 5 y 13.5</span>
+            </p>
+            <p>
+              Puedes retirar tu consentimiento cuando quieras, sin dar explicaciones y sin costo. Retirarlo no
+              afecta lo que se hizo antes con tus datos de forma legal.
+            </p>
+          </section>
+
+          <section class="seccion" id="seguridad">
+            <h2><span class="num">4</span>Cómo protegemos tus datos</h2>
+            <p>
+              Aplicamos medidas técnicas y organizativas para evitar que tus datos se pierdan, se alteren o los
+              vea alguien sin autorización.
+              <span class="ley">Ley 29733, art. 9 y 16</span>
+            </p>
+            <ul>
+              <li>
+                <strong>Solo tú ves tu ficha.</strong> Para consultar, editar o borrar tus datos debes iniciar
+                sesión, y nadie más registrado en el sistema puede ver ni modificar tu ficha.
+              </li>
+              <li>
+                <strong>Contraseñas con hash y salt.</strong> Usamos PBKDF2-SHA256 con 600 000 iteraciones y un
+                valor aleatorio (salt) distinto para cada persona. Dos personas con la misma contraseña tienen
+                resúmenes diferentes.
+              </li>
+              <li>
+                <strong>Datos restringidos.</strong> Puedes marcar datos de tu ficha para que no se muestren al
+                consultarla; en su lugar aparece una barra de tachado.
+              </li>
+              <li>
+                <strong>Consultas seguras.</strong> La base de datos solo recibe consultas parametrizadas, lo
+                que evita ataques de inyección SQL.
+              </li>
+              <li>
+                <strong>Lo mínimo hacia afuera.</strong> El hash y el salt de la contraseña nunca salen de la base
+                de datos.
+              </li>
+            </ul>
+          </section>
+
+          <section class="seccion" id="conservacion">
+            <h2><span class="num">5</span>Cuánto tiempo los guardamos</h2>
+            <p>
+              Guardamos tus datos mientras tu ficha exista. Se eliminan cuando pides la cancelación, cuando
+              borras tu ficha o cuando termina el proyecto, lo que ocurra primero. No conservamos copias una vez
+              que la ficha se elimina.
+              <span class="ley">Ley 29733, art. 8</span>
+            </p>
+          </section>
+
+          <section class="seccion" id="terceros">
+            <h2><span class="num">6</span>Con quién los compartimos</h2>
+            <p>
+              Con nadie. No vendemos, cedemos ni transferimos tus datos a otras personas o empresas, y no los
+              enviamos fuera del Perú. Solo los entregaríamos a una autoridad que los pida por mandato legal.
+              <span class="ley">Ley 29733, art. 14 y 15</span>
+            </p>
+          </section>
+
+          <section class="seccion" id="arco">
+            <h2><span class="num">7</span>Tus derechos ARCO</h2>
+            <p>
+              Como titular de tus datos tienes cuatro derechos principales. Ejercerlos es gratuito y no
+              necesitas justificar por qué lo haces.
+            </p>
+
+            <div class="arco">
+              <article class="derecho">
+                <span class="letra" aria-hidden="true">A</span>
+                <h3>Acceso</h3>
+                <p>Saber qué datos tuyos tenemos, de dónde salieron, para qué los usamos y a quién se los dimos.</p>
+                <dl class="detalles">
+                  <div><dt>Plazo de respuesta</dt><dd>20 días hábiles</dd></div>
+                  <div><dt>En la app</dt><dd>Abre tu ficha</dd></div>
+                </dl>
+                <p class="ley">Ley 29733, art. 19</p>
+              </article>
+
+              <article class="derecho">
+                <span class="letra" aria-hidden="true">R</span>
+                <h3>Rectificación</h3>
+                <p>Corregir o completar tus datos si están mal, incompletos o desactualizados.</p>
+                <dl class="detalles">
+                  <div><dt>Plazo de respuesta</dt><dd>10 días hábiles</dd></div>
+                  <div><dt>En la app</dt><dd>Editar datos</dd></div>
+                </dl>
+                <p class="ley">Ley 29733, art. 20</p>
+              </article>
+
+              <article class="derecho">
+                <span class="letra" aria-hidden="true">C</span>
+                <h3>Cancelación</h3>
+                <p>
+                  Pedir que borremos tus datos cuando ya no sean necesarios para la finalidad para la que los
+                  diste o cuando retires tu consentimiento.
+                </p>
+                <dl class="detalles">
+                  <div><dt>Plazo de respuesta</dt><dd>10 días hábiles</dd></div>
+                  <div><dt>En la app</dt><dd>Eliminar ficha</dd></div>
+                </dl>
+                <p class="ley">Ley 29733, art. 20</p>
+              </article>
+
+              <article class="derecho">
+                <span class="letra" aria-hidden="true">O</span>
+                <h3>Oposición</h3>
+                <p>
+                  Oponerte a que usemos o mostremos tus datos cuando tengas un motivo legítimo, aunque no haya
+                  dado tu consentimiento para otro uso.
+                </p>
+                <dl class="detalles">
+                  <div><dt>Plazo de respuesta</dt><dd>10 días hábiles</dd></div>
+                  <div><dt>En la app</dt><dd>Restringir un dato</dd></div>
+                </dl>
+                <p class="ley">Ley 29733, art. 21 y 22</p>
+              </article>
+            </div>
+
+            <p style="margin-top: 20px">
+              Además tienes derecho a recibir información clara antes de dar tus datos (art. 18), a no ser
+              objeto de decisiones basadas solo en tratamiento automatizado (art. 23), a pedir tutela ante la
+              Autoridad (art. 24) y a ser indemnizado si se vulneran tus derechos (art. 25).
+            </p>
+            <p class="nota">
+              Los plazos son los del Reglamento de la Ley N.º 29733 y se cuentan desde el día siguiente a la
+              recepción de tu solicitud. El plazo de acceso puede ampliarse una vez por el mismo tiempo si
+              hay una razón que lo justifique, y te avisaremos.
+            </p>
+          </section>
+
+          <section class="seccion" id="ejercer">
+            <h2><span class="num">8</span>Cómo ejercer tus derechos</h2>
+            <p>Si no puedes hacerlo directamente en la app, o prefieres pedirlo por escrito:</p>
+            <ol class="pasos">
+              <li>
+                <strong>Escríbenos</strong> a <span class="pendiente">[correo de contacto]</span> indicando qué
+                derecho quieres ejercer.
+              </li>
+              <li>
+                <strong>Identifícate</strong> con tu nombre completo y una copia de tu DNI. Si actúa otra persona
+                por ti, adjunta el documento que acredite la representación.
+              </li>
+              <li>
+                <strong>Explica tu pedido</strong>: qué datos quieres ver, corregir, borrar o restringir, y
+                adjunta los documentos que lo respalden si corresponde.
+              </li>
+              <li>
+                <strong>Recibe la respuesta</strong> en el correo que indiques, dentro de los plazos de la
+                sección anterior.
+              </li>
+            </ol>
+            <div class="contacto">
+              <strong>Si no respondemos o no estás de acuerdo</strong> con la respuesta, puedes presentar una
+              reclamación ante la Autoridad Nacional de Protección de Datos Personales del Ministerio de
+              Justicia y Derechos Humanos.
+            </div>
+          </section>
+
+          <section class="seccion" id="principios">
+            <h2><span class="num">9</span>Principios que seguimos</h2>
+            <p>Todo lo anterior se basa en los principios rectores de la Ley N.º 29733 (arts. 4 al 11):</p>
+            <ul class="principios">
+              <li><strong>Legalidad</strong><span>Solo tratamos datos por medios lícitos.</span></li>
+              <li><strong>Consentimiento</strong><span>Nada se hace sin tu autorización.</span></li>
+              <li><strong>Finalidad</strong><span>Usamos tus datos solo para lo que te dijimos.</span></li>
+              <li><strong>Proporcionalidad</strong><span>Pedimos lo mínimo necesario.</span></li>
+              <li><strong>Calidad</strong><span>Tus datos deben ser exactos y estar al día.</span></li>
+              <li><strong>Seguridad</strong><span>Los protegemos contra accesos indebidos.</span></li>
+              <li><strong>Disposición de recurso</strong><span>Siempre tienes cómo reclamar.</span></li>
+              <li><strong>Nivel de protección adecuado</strong><span>Si salieran del país, con igual protección.</span></li>
+            </ul>
+          </section>
+
+          <section class="seccion" id="cambios">
+            <h2><span class="num">10</span>Cambios a esta política</h2>
+            <p>
+              Si cambiamos esta política te lo diremos antes de que el cambio aplique, y actualizaremos la
+              fecha de vigencia al inicio de esta página. Si el cambio implica usar tus datos para algo nuevo,
+              te pediremos tu consentimiento otra vez.
+            </p>
+            <p class="pie">
+              Marco legal: Ley N.º 29733, Ley de Protección de Datos Personales, y su Reglamento.
+            </p>
+          </section>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>
